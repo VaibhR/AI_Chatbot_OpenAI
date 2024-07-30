@@ -16,7 +16,7 @@ text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(data)
 # print(docs)
 #use openai embeddings to convert text data into a vector with having dimension and vector index form for vector database
-embeddings = OpenAIEmbeddings(api_key="sk-proj-TYkCCuSrvwyr12WzjQxIT3BlbkFJXsDGGaLbKdgwzP5ifWQX")
+embeddings = OpenAIEmbeddings(api_key="------api key-----")
 #embedded vector database is then stored in faiss(facebook AI similarity search)
 db = FAISS.from_documents(docs, embeddings)
 # print(db.index.ntotal)
@@ -30,7 +30,7 @@ answers.insert(0,ques)
 #list data convert into a string form
 query=str(answers)
 # print(query)
-client = OpenAI(api_key="sk-proj-TYkCCuSrvwyr12WzjQxIT3BlbkFJXsDGGaLbKdgwzP5ifWQX")
+client = OpenAI(api_key="-----api_key--------")
 completion = client.chat.completions.create(
                         model="gpt-4o-mini",
                         messages=[
